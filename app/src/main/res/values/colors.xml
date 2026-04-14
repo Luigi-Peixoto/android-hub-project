@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Primary -->
+    <color name="primary">#2563EB</color>
+    <color name="onPrimary">#FFFFFF</color>
+
+    <!-- Secondary -->
+    <color name="secondary">#16A34A</color>
+    <color name="onSecondary">#FFFFFF</color>
+
+    <!-- Background -->
+    <color name="background">#F8FAFC</color>
+    <color name="onBackground">#0F172A</color>
+
+    <!-- Surface (cards) -->
+    <color name="surface">#FFFFFF</color>
+    <color name="onSurface">#0F172A</color>
+
+    <!-- Text -->
+    <color name="textPrimary">#0F172A</color>
+    <color name="textSecondary">#475569</color>
+
+</resources>

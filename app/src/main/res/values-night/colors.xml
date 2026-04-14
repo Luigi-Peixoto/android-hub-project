@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Primary -->
+    <color name="primary">#3B82F6</color>
+    <color name="onPrimary">#FFFFFF</color>
+
+    <!-- Secondary -->
+    <color name="secondary">#22C55E</color>
+    <color name="onSecondary">#052E16</color>
+
+    <!-- Background -->
+    <color name="background">#0F172A</color>
+    <color name="onBackground">#E2E8F0</color>
+
+    <!-- Surface -->
+    <color name="surface">#1E293B</color>
+    <color name="onSurface">#F1F5F9</color>
+
+    <!-- Text -->
+    <color name="textPrimary">#F1F5F9</color>
+    <color name="textSecondary">#94A3B8</color>
+
+</resources>
