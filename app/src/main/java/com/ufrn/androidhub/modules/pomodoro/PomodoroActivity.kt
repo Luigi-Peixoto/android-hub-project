@@ -24,6 +24,7 @@ class PomodoroActivity : AppCompatActivity() {
     private lateinit var btnStart: MaterialButton
     private lateinit var btnReset: ImageButton
     private lateinit var btnMusic: ImageButton
+    private lateinit var btnBack: ImageButton
     
     private lateinit var btnPomodoroMode: MaterialButton
     private lateinit var btnShortBreakMode: MaterialButton
@@ -57,6 +58,7 @@ class PomodoroActivity : AppCompatActivity() {
         btnStart = findViewById(R.id.btnStart)
         btnReset = findViewById(R.id.btnReset)
         btnMusic = findViewById(R.id.btnMusic)
+        btnBack = findViewById(R.id.btnBack)
         btnPomodoroMode = findViewById(R.id.btnPomodoroMode)
         btnShortBreakMode = findViewById(R.id.btnShortBreakMode)
         btnLongBreakMode = findViewById(R.id.btnLongBreakMode)
@@ -76,6 +78,10 @@ class PomodoroActivity : AppCompatActivity() {
             showMusicDialog()
         }
 
+        btnBack.setOnClickListener {
+            finish()
+        }
+
         btnPomodoroMode.setOnClickListener { setMode("pomodoro", configPomodoro) }
         btnShortBreakMode.setOnClickListener { setMode("short", configShortBreak) }
         btnLongBreakMode.setOnClickListener { setMode("long", configLongBreak) }
@@ -85,31 +91,55 @@ class PomodoroActivity : AppCompatActivity() {
         currentMode = mode
         resetTimerTo(timeInMillis)
         
+        // Obter cores do tema
+        val activeBgTint = getThemeColor(android.R.attr.textColorPrimary)
+        val activeTextTint = getThemeColor(android.R.attr.windowBackground)
+        val inactiveBgTint = Color.TRANSPARENT
+        val inactiveTextTint = getThemeColor(android.R.attr.textColorPrimary)
+
         // Reset styles
-        btnPomodoroMode.backgroundTintList = android.content.res.ColorStateList.valueOf(Color.TRANSPARENT)
-        btnPomodoroMode.setTextColor(Color.WHITE)
-        btnShortBreakMode.backgroundTintList = android.content.res.ColorStateList.valueOf(Color.TRANSPARENT)
-        btnShortBreakMode.setTextColor(Color.WHITE)
-        btnLongBreakMode.backgroundTintList = android.content.res.ColorStateList.valueOf(Color.TRANSPARENT)
-        btnLongBreakMode.setTextColor(Color.WHITE)
+        btnPomodoroMode.backgroundTintList = android.content.res.ColorStateList.valueOf(inactiveBgTint)
+        btnPomodoroMode.setTextColor(inactiveTextTint)
+        btnPomodoroMode.strokeColor = android.content.res.ColorStateList.valueOf(inactiveTextTint)
+        
+        btnShortBreakMode.backgroundTintList = android.content.res.ColorStateList.valueOf(inactiveBgTint)
+        btnShortBreakMode.setTextColor(inactiveTextTint)
+        btnShortBreakMode.strokeColor = android.content.res.ColorStateList.valueOf(inactiveTextTint)
+        
+        btnLongBreakMode.backgroundTintList = android.content.res.ColorStateList.valueOf(inactiveBgTint)
+        btnLongBreakMode.setTextColor(inactiveTextTint)
+        btnLongBreakMode.strokeColor = android.content.res.ColorStateList.valueOf(inactiveTextTint)
 
         // Set active style
         when (mode) {
             "pomodoro" -> {
-                btnPomodoroMode.backgroundTintList = android.content.res.ColorStateList.valueOf(Color.WHITE)
-                btnPomodoroMode.setTextColor(Color.BLACK)
+                btnPomodoroMode.backgroundTintList = android.content.res.ColorStateList.valueOf(activeBgTint)
+                btnPomodoroMode.setTextColor(activeTextTint)
+                btnPomodoroMode.strokeColor = android.content.res.ColorStateList.valueOf(Color.TRANSPARENT)
             }
             "short" -> {
-                btnShortBreakMode.backgroundTintList = android.content.res.ColorStateList.valueOf(Color.WHITE)
-                btnShortBreakMode.setTextColor(Color.BLACK)
+                btnShortBreakMode.backgroundTintList = android.content.res.ColorStateList.valueOf(activeBgTint)
+                btnShortBreakMode.setTextColor(activeTextTint)
+                btnShortBreakMode.strokeColor = android.content.res.ColorStateList.valueOf(Color.TRANSPARENT)
             }
             "long" -> {
-                btnLongBreakMode.backgroundTintList = android.content.res.ColorStateList.valueOf(Color.WHITE)
-                btnLongBreakMode.setTextColor(Color.BLACK)
+                btnLongBreakMode.backgroundTintList = android.content.res.ColorStateList.valueOf(activeBgTint)
+                btnLongBreakMode.setTextColor(activeTextTint)
+                btnLongBreakMode.strokeColor = android.content.res.ColorStateList.valueOf(Color.TRANSPARENT)
             }
         }
     }
 
+    private fun getThemeColor(attr: Int): Int {
+        val typedValue = android.util.TypedValue()
+        theme.resolveAttribute(attr, typedValue, true)
+        return if (typedValue.type >= android.util.TypedValue.TYPE_FIRST_COLOR_INT && typedValue.type <= android.util.TypedValue.TYPE_LAST_COLOR_INT) {
+            typedValue.data
+        } else {
+            androidx.core.content.ContextCompat.getColor(this, typedValue.resourceId)
+        }
+    }
+    
     private fun startTimer() {
         countDownTimer = object : CountDownTimer(timeRemainingMillis, 1000) {
             override fun onTick(millisUntilFinished: Long) {
@@ -175,7 +205,7 @@ class PomodoroActivity : AppCompatActivity() {
             else -> R.drawable.ic_circle_outline
         }
         imageView.setImageResource(iconRes)
-        imageView.setColorFilter(Color.WHITE)
+        imageView.setColorFilter(getThemeColor(android.R.attr.textColorPrimary))
         val params = LinearLayout.LayoutParams(64, 64)
         params.marginStart = 8
         params.marginEnd = 8
@@ -215,8 +245,9 @@ class PomodoroActivity : AppCompatActivity() {
 
     private fun showMusicDialog() {
         val options = arrayOf("Floresta", "Chuva", "Mar", "Lareira", "Nenhuma")
-        AlertDialog.Builder(this)
-            .setTitle("Escolher som de fundo")
+        
+        val builder = com.google.android.material.dialog.MaterialAlertDialogBuilder(this, com.google.android.material.R.style.ThemeOverlay_MaterialComponents_Dialog_Alert)
+        builder.setTitle("Escolha uma Trilha Sonora")
             .setItems(options) { _, which ->
                 stopBackgroundMusic()
                 currentMusicRawId = when (which) {
@@ -230,7 +261,10 @@ class PomodoroActivity : AppCompatActivity() {
                     playBackgroundMusic()
                 }
             }
-            .show()
+        
+        val dialog = builder.create()
+        dialog.window?.setBackgroundDrawableResource(R.drawable.bg_hero_card)
+        dialog.show()
     }
 
     override fun onDestroy() {

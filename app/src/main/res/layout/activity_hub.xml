@@ -252,7 +252,7 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@android:drawable/ic_menu_add"
+                android:src="@android:drawable/ic_menu_recent_history"
                 app:tint="#673AB7"/>
 
             <TextView

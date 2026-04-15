@@ -33,7 +33,7 @@ class HubActivity : AppCompatActivity() {
         listOf(
             Module("access_basketball", R.string.basket_module_name, R.string.basket_desc, BasketBallActivity::class.java),
             Module("access_calculator", R.string.calculator_name, R.string.calculator_desc, CalculatorActivity::class.java),
-            Module("access_todo", R.string.third_app_name, R.string.third_app_desc, CalculatorActivity::class.java) // trocar quando criar
+            Module("access_pomodoro", R.string.third_app_name, R.string.third_app_desc, com.ufrn.androidhub.modules.pomodoro.PomodoroActivity::class.java)
         )
     }
 
