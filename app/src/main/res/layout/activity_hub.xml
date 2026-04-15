@@ -133,7 +133,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardNewApp"
+            android:id="@+id/cardPomodoro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="16dp"
@@ -153,13 +153,13 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@android:drawable/ic_menu_add"
+                    android:src="@android:drawable/ic_menu_recent_history"
                     app:tint="@color/primary" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="To-Do list"
+                    android:text="Pomodoro"
                     android:textSize="18sp"
                     android:textColor="@color/textPrimary"
                     android:layout_marginStart="16dp"/>

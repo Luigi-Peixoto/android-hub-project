@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidHub">
         <activity
+            android:name=".modules.pomodoro.PomodoroActivity"
+            android:exported="false" />
+        <activity
             android:name=".modules.calculator.CalculatorActivity"
             android:exported="false" />
         <activity

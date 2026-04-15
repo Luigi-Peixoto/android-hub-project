@@ -45,6 +45,10 @@ class HubActivity : AppCompatActivity() {
         findViewById<MaterialCardView>(R.id.cardBasketball).setOnClickListener {
             startActivity(Intent(this, BasketBallActivity::class.java))
         }
+        
+        findViewById<MaterialCardView>(R.id.cardPomodoro).setOnClickListener {
+            startActivity(Intent(this, com.ufrn.androidhub.modules.pomodoro.PomodoroActivity::class.java))
+        }
     }
 
     private fun updateThemeIcon(btn: ImageButton) {
