@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- Primary -->
     <color name="primary">#2563EB</color>
+    <color name="background">#F8FAFC</color>
+    <color name="textPrimary">#0F172A</color>
+    <color name="textSecondary">#64748B</color>
     <color name="onPrimary">#FFFFFF</color>
 
-    <!-- Secondary -->
     <color name="secondary">#16A34A</color>
     <color name="onSecondary">#FFFFFF</color>
 
-    <!-- Background -->
-    <color name="background">#F8FAFC</color>
-    <color name="onBackground">#0F172A</color>
-
-    <!-- Surface (cards) -->
     <color name="surface">#FFFFFF</color>
     <color name="onSurface">#0F172A</color>
 
-    <!-- Text -->
-    <color name="textPrimary">#0F172A</color>
-    <color name="textSecondary">#475569</color>
+    <color name="hero_card_start">#3B82F6</color>
+    <color name="hero_card_end">#DBEAFE</color>
 
+    <color name="mini_card_1_start">#95FDB0</color> <color name="mini_card_1_stroke">#16A34A</color>
+
+    <color name="mini_card_2_start">#A38AFF</color> <color name="mini_card_2_stroke">#673AB7</color>
+
+    <color name="cta_link">#1D4ED8</color>
 </resources>

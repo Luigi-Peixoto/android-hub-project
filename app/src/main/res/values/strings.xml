@@ -28,4 +28,19 @@
 
     <string name="calc_error">Erro</string>
     <string name="calc_div_zero">Divisão por zero</string>
+
+    <string name="hub_title">Android Hub</string>
+    <string name="hub_subtitle">Escolha uma aplicação</string>
+
+    <string name="calculator_name">Calculadora Científica</string>
+    <string name="calculator_desc">Operações avançadas e funções matemáticas</string>
+
+    <string name="basket_desc">Controle de placar em tempo real</string>
+
+    <string name="third_app_name">Pomodoro</string>
+    <string name="third_app_desc">Gerencie seu tempo de foco</string>
+
+    <string name="hub_eyebrow">seus módulos</string>
+    <string name="hub_most_used">mais acessado</string>
+    <string name="hub_open_module">Abrir módulo →</string>
 </resources>
