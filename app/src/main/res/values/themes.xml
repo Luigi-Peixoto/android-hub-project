@@ -26,6 +26,11 @@
         <!-- Opcional: força status bar icons claros -->
         <item name="android:windowLightStatusBar">true</item>
 
+        <item name="materialButtonStyle">@style/Widget.App.Button.Retangular</item>
+    </style>
+
+    <style name="Widget.App.Button.Retangular" parent="Widget.Material3.Button">
+        <item name="cornerRadius">0dp</item>
     </style>
 
 </resources>

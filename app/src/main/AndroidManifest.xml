@@ -11,10 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidHub">
-        <activity android:name=".modules.basketball.HubActivity"
+        <activity
+            android:name=".modules.calculator.CalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".modules.basketball.BasketBallActivity"
+            android:exported="false" />
+        <activity
+            android:name=".modules.hub.HubActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
